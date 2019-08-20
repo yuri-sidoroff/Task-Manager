@@ -16,7 +16,8 @@ import {
     EDIT_TASK_DESCRIPTION,
     EDIT_TASK_DEADLINE_DATE,
     EDIT_TASK_DEADLINE_TIME,
-    EDIT_TASK_PRIORITY
+    EDIT_TASK_PRIORITY,
+    DELETE_ALL_TASK_LIST_HANDLER
 } from './constants'
 
 const initialState = {
@@ -28,40 +29,10 @@ const initialState = {
         description: '',
         deadline: { date: '', time: '' },
         priority: '',
-        status: { progress: '', date: '', time: '' },
         edit: false,
         completed: false
     },
-    taskList: [
-        {
-            taskName: 'Task 1',
-            description: 'This is a one of my favorite task today',
-            deadline: { date: '2019-01-02', time: '22:00' },
-            priority: 'Important',
-            status: { progress: '', date: '2019-01-03', time: '15:35' },
-            edit: false,
-            completed: true
-        },
-
-        {
-            taskName: 'Task 2',
-            description: 'This is a one of my bad task today',
-            deadline: { date: '2019-02-18', time: '15:20' },
-            priority: 'Common',
-            status: { progress: 'Overdue', date: '', time: '' },
-            edit: false,
-            completed: false
-        },
-        {
-            taskName: 'Task 3',
-            description: 'This is a one of my favorite task today',
-            deadline: { date: '2019-01-02', time: '22:00' },
-            priority: 'Very important',
-            status: { progress: 'In progress...', date: '', time: '' },
-            edit: false,
-            completed: false
-        }
-    ]
+    taskList: []
 }
 
 export default (state = initialState, action) => {
@@ -70,6 +41,7 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 addNewTask: !state.addNewTask,
+                taskWithoutDate: false,
                 newTask: {
                     ...state.newTask,
                     taskName: action.payload.taskName,
@@ -164,6 +136,8 @@ export default (state = initialState, action) => {
                     return key === action.payload.key ? { ...item, priority: action.payload.item } : item
                 })
             };
+        case DELETE_ALL_TASK_LIST_HANDLER:
+            return { ...state, taskList:[]};
 
         default:
             return state;

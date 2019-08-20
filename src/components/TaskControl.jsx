@@ -17,7 +17,6 @@ class TaskControl extends React.Component {
         return (
             <div>
                 <div align='center'>
-                    
                     {
                         !this.props.addNewTask
                             ? <button
@@ -27,6 +26,7 @@ class TaskControl extends React.Component {
                             </button>
                             : null
                     }
+                    <button onClick={() =>this.props.deleteAllTaskListHandler()}>Delete task list</button>
                 </div>
                 {this.props.addNewTask
                     ? <TaskAdd />

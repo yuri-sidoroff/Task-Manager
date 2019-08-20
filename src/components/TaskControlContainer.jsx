@@ -1,7 +1,8 @@
 import { connect } from 'react-redux'
 import {
     addNewTaskHandler,
-    filterTasksHandler
+    filterTasksHandler,
+    deleteAllTaskListHandler
 } from '../store/actionCreators'
 import TaskControl from './TaskControl'
 
@@ -12,7 +13,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
     addNewTaskHandler,
-    filterTasksHandler
+    filterTasksHandler,
+    deleteAllTaskListHandler
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TaskControl);

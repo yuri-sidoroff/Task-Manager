@@ -6,10 +6,10 @@ class TaskList extends React.Component {
             .filter((item) => this.props.filterTasks === 'All tasks' ? item : item.priority === this.props.filterTasks)
             .map((taskList, key) => {
                 return (
-                    <tr key={key} style={this.props.taskList[key].status.progress === 'Overdue' ? { backgroundColor: '#fd6565' } : (this.props.taskList[key].completed ? { backgroundColor: '#65ff65' } : null)}>
+                    <tr key={key} style={new Date().getTime() > new Date(`${taskList.deadline.date} ${taskList.deadline.time}`).getTime() && !taskList.completed ? { backgroundColor: '#fd6565' } : (taskList.completed ? { backgroundColor: '#65ff65' } : null)}>
                         <td>
                             {
-                                this.props.taskList[key].edit
+                                taskList.edit
                                     ? <input
                                         type="text"
                                         value={taskList.taskName}
@@ -21,7 +21,7 @@ class TaskList extends React.Component {
                         </td>
                         <td>
                             {
-                                this.props.taskList[key].edit
+                                taskList.edit
                                     ? <input
                                         type="text"
                                         value={taskList.description}
@@ -32,7 +32,7 @@ class TaskList extends React.Component {
                         </td>
                         <td>
                             {
-                                this.props.taskList[key].edit
+                                taskList.edit
                                     ? <React.Fragment>
                                         <input
                                             type="date"
@@ -50,7 +50,7 @@ class TaskList extends React.Component {
                         </td>
                         <td>
                             {
-                                this.props.taskList[key].edit
+                                taskList.edit
                                     ? <select
                                         value={taskList.priority}
                                         onChange={(event) => this.props.editTaskPriority({ item: event.target.value, key })}
@@ -64,19 +64,19 @@ class TaskList extends React.Component {
                         </td>
                         <td>
                             {
-                                `${taskList.status.progress}${taskList.status.date} ${taskList.status.time}`
+                                new Date().getTime() > new Date(`${taskList.deadline.date} ${taskList.deadline.time}`).getTime() && !taskList.completed
+                                    ? 'Overdue'
+                                    : (taskList.completed
+                                        ? `${taskList.status.date} ${taskList.status.time}`
+                                        : 'In progress...')
                             }
                         </td>
                         <td>
                             <button
                                 onClick={() => this.props.taskEditHandler(key)}
-                                disabled={
-                                    this.props.taskList[key].status.progress === 'Overdue' || this.props.taskList[key].status.progress === 'In progress...'
-                                        ? ''
-                                        : 'disabled'
-                                }
+                                disabled={taskList.completed ? 'disabled' : null}
                             >
-                                {this.props.taskList[key].edit ? 'OK' : 'Edit'}
+                                {taskList.edit ? 'OK' : 'Edit'}
                             </button>
                         </td>
                         <td>
@@ -85,7 +85,7 @@ class TaskList extends React.Component {
                             </button>
                         </td>
                         <td>
-                            {this.props.taskList[key].completed
+                            {taskList.completed
                                 ? null
                                 : <button onClick={() => this.props.completedTaskHandler(key)}>
                                     Done
