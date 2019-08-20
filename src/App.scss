@@ -1,0 +1,177 @@
+
+$fontSizeTable: 18px;
+$fontSizeInputText: 14px;
+$tdBorderRadiusFirstEnd: 30px;
+$standartWidth: 100px;
+
+@mixin  standartStyleInput {
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid #322323;
+  outline: none;
+}
+
+body {
+  background-color: #322323;
+  color: #c5c5c5;
+}
+
+button {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  outline: none;
+  margin-left: 10px;
+}
+
+button:hover {
+  box-shadow: 0 0 15px #f4ba5f;
+}
+
+select {
+  width: $standartWidth;
+  @include standartStyleInput;
+  text-align-last: center;
+  cursor: pointer;
+}
+
+.inputTextName {
+  width: $standartWidth;
+  @include standartStyleInput;
+  padding-left: 5px;
+  font-size: $fontSizeInputText;
+}
+
+.inputTextDescription {
+  width: 150px;
+  @include standartStyleInput;
+  padding-left: 5px;
+  font-size: $fontSizeInputText;
+}
+
+input[type=text]:focus::-webkit-input-placeholder {
+   color:transparent; 
+}
+
+input[type=date] {
+  width: $standartWidth;
+  @include standartStyleInput;
+  text-align: center;
+  font-size: $fontSizeInputText;
+}
+
+input[type=date]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  display: none;
+}
+
+input[type=date]::-webkit-calendar-picker-indicator {
+  -webkit-appearance: none;
+  display: none;
+}
+
+input[type=date]::-webkit-clear-button {
+  -webkit-appearance: none;
+  display: none;
+}
+
+input[type=time] {
+  width: 60px;
+  @include standartStyleInput;
+  text-align: center;
+  font-size: $fontSizeInputText;
+}
+
+input[type=time]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  display: none;
+}
+
+input[type=time]::-webkit-clear-button {
+  -webkit-appearance: none;
+  display: none;
+}
+
+input[type=checkbox] {
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+}
+
+label {
+  cursor: pointer;
+}
+
+.taskList{
+  width: 1024px;
+  border-spacing: 0 5px;
+  tbody {
+    font-size: $fontSizeTable;
+      tr {
+        td:not(.tdBtn) { 
+          color: #322323;
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+      }
+  }
+}
+
+.tdFirst {
+  border-top-left-radius: $tdBorderRadiusFirstEnd;
+  border-bottom-left-radius: $tdBorderRadiusFirstEnd;
+  width: 120px;
+}
+
+.tdEnd {
+  border-top-right-radius: $tdBorderRadiusFirstEnd;
+  border-bottom-right-radius: $tdBorderRadiusFirstEnd;
+  text-align: center;
+  width: 130px;
+}
+
+.tdDescription {
+  width: 200px;
+}
+
+.tdDeadline {
+  width: 170px;
+  text-align: center;
+}
+
+.tdPriority {
+  width: 115px;
+  text-align: center;
+}
+
+
+.overdue {
+  background-color: #e44646
+}
+
+.completed {
+  background-color: #34b297;
+}
+
+.normal {
+  background-color: #f4ba5f;
+}
+
+.done {
+  background-image: url(./components/icons/done.png);
+}
+.delete {
+  background-image: url(./components/icons/delete.png);
+}
+.edit {
+  background-image: url(./components/icons/edit.png);
+}
+.new {
+  background-image: url(./components/icons/new.png);
+}
+.cancel {
+  background-image: url(./components/icons/cancel.png);
+}
+
+
+

@@ -16,8 +16,7 @@ import {
     EDIT_TASK_DESCRIPTION,
     EDIT_TASK_DEADLINE_DATE,
     EDIT_TASK_DEADLINE_TIME,
-    EDIT_TASK_PRIORITY,
-    DELETE_ALL_TASK_LIST_HANDLER
+    EDIT_TASK_PRIORITY
 } from './constants'
 
 export const addNewTaskHandler = (payload) => ({ type: ADD_NEW_TASK_HANDLER, payload });
@@ -38,4 +37,3 @@ export const editTaskDescription = (payload) => ({ type: EDIT_TASK_DESCRIPTION, 
 export const editTaskDeadlineDate = (payload) => ({ type: EDIT_TASK_DEADLINE_DATE, payload });
 export const editTaskDeadlineTime = (payload) => ({ type: EDIT_TASK_DEADLINE_TIME, payload });
 export const editTaskPriority = (payload) => ({ type: EDIT_TASK_PRIORITY, payload });
-export const deleteAllTaskListHandler = () => ({ type: DELETE_ALL_TASK_LIST_HANDLER });

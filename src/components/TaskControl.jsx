@@ -16,18 +16,15 @@ class TaskControl extends React.Component {
     render() {
         return (
             <div>
-                <div align='center'>
-                    {
-                        !this.props.addNewTask
-                            ? <button
-                                onClick={() => this.props.addNewTaskHandler(initialState)}
+                {
+                    !this.props.addNewTask
+                        ? <button 
+                            onClick={() => this.props.addNewTaskHandler(initialState)}
+                            className='new'
                             >
-                                Add new task
                             </button>
-                            : null
-                    }
-                    <button onClick={() =>this.props.deleteAllTaskListHandler()}>Delete task list</button>
-                </div>
+                        : null
+                }
                 {this.props.addNewTask
                     ? <TaskAdd />
                     : null}

@@ -7,7 +7,7 @@ import reducer from './store/reducers';
 import { Provider } from 'react-redux';
 import TaskControl from './components/TaskControlContainer';
 import TaskList from './components/TaskListContainer';
-import './App.css';
+import './App.scss';
 
 const persistConfig = {
   key: 'root',

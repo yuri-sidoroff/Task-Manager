@@ -16,8 +16,7 @@ import {
     EDIT_TASK_DESCRIPTION,
     EDIT_TASK_DEADLINE_DATE,
     EDIT_TASK_DEADLINE_TIME,
-    EDIT_TASK_PRIORITY,
-    DELETE_ALL_TASK_LIST_HANDLER
+    EDIT_TASK_PRIORITY
 } from './constants'
 
 const initialState = {
@@ -135,9 +134,7 @@ export default (state = initialState, action) => {
                 ...state, taskList: state.taskList.map((item, key) => {
                     return key === action.payload.key ? { ...item, priority: action.payload.item } : item
                 })
-            };
-        case DELETE_ALL_TASK_LIST_HANDLER:
-            return { ...state, taskList:[]};
+            };  
 
         default:
             return state;

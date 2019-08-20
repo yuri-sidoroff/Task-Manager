@@ -1,50 +1,31 @@
 import React from 'react';
-
-// const initialState = {
-//     taskName: 'New Task',
-//     description: 'New description',
-//     deadline: {
-//         date: new Date(new Date().setDate(new Date().getDate() + 1)).toLocaleString().slice(0, 10).split('.').reverse().join('-'),
-//         time: new Date(new Date().setDate(new Date().getDate() + 1)).toLocaleString().slice(12, 17)
-//     },
-//     priority: 'Common',
-//     status: { progress: 'In progress...', date: '', time: '' }
-// }
-
 class TaskAdd extends React.Component {
 
     render() {
         return (
             <div>
-                <table align='center'>
+                <table>
                     <tbody>
-                        <tr align='left'>
-                            <th>Task name:</th>
+                        <tr> 
                             <td>
                                 <input
                                     type="text"
                                     name="taskname"
-                                    placeholder='Enter task name'
+                                    placeholder='Name'
                                     onChange={(event) => this.props.inputTaskName(event.target.value)}
+                                    className='inputTextName'
                                     autoFocus
                                 />
                             </td>
-                        </tr>
-                        <tr align='left'>
-                            <th valign='top'>Description:</th>
                             <td>
-                                <textarea
-                                    rows='10'
-                                    cols='50'
-                                    wrap='soft'
+                                <input
+                                    type="text"
                                     name="taskdescription"
-                                    placeholder='Enter task description'
+                                    placeholder='Description'
                                     onChange={(event) => this.props.inputTaskDescription(event.target.value)}
+                                    className='inputTextDescription'
                                 />
                             </td>
-                        </tr>
-                        <tr align='left'>
-                            <th>Deadline:</th>
                             <td>
                                 {!this.props.taskWithoutDate
                                     ? <React.Fragment>
@@ -53,6 +34,7 @@ class TaskAdd extends React.Component {
                                             min={new Date().toLocaleString().slice(0, 10).split('.').reverse().join('-')}
                                             value={this.props.newTask.deadline.date}
                                             onChange={(event) => this.props.inputTaskDeadlineDate(event.target.value)}
+                                            className='inputDate'
                                         />
                                         <input
                                             type="time"
@@ -64,9 +46,6 @@ class TaskAdd extends React.Component {
                                 <input type="checkbox" id='without' onChange={this.props.taskWithoutDateHandler} />
                                 <label htmlFor="without">Without deadline</label>
                             </td>
-                        </tr>
-                        <tr align='left'>
-                            <th>Priority:</th>
                             <td>
                                 <select onChange={(event) => this.props.inputTaskPriority(event.target.value)}>
                                     <option selected='selected' value='Common'>Common</option>
@@ -74,12 +53,9 @@ class TaskAdd extends React.Component {
                                     <option value='Very important'>Very important</option>
                                 </select>
                             </td>
-                        </tr>
-                        <tr>
-                            <td></td>
                             <td>
-                                <button onClick={this.props.submitAddNewTaskHandler}>Submit</button>
-                                <button onClick={this.props.cancelAddNewTaskHandler}>Cancel</button>
+                                <button className='new' onClick={this.props.submitAddNewTaskHandler}></button>
+                                <button className='cancel' onClick={this.props.cancelAddNewTaskHandler}></button>
                             </td>
                         </tr>
                     </tbody>
