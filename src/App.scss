@@ -36,14 +36,14 @@ select {
 }
 
 .inputTextName {
-  width: $standartWidth;
+  width: 120px;
   @include standartStyleInput;
   padding-left: 5px;
   font-size: $fontSizeInputText;
 }
 
 .inputTextDescription {
-  width: 150px;
+  width: 190px;
   @include standartStyleInput;
   padding-left: 5px;
   font-size: $fontSizeInputText;
@@ -55,7 +55,11 @@ input[type=text]:focus::-webkit-input-placeholder {
 
 input[type=date] {
   width: $standartWidth;
-  @include standartStyleInput;
+  height: 30px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: 1px solid #322323;
+  outline: none;
   text-align: center;
   font-size: $fontSizeInputText;
 }
@@ -77,7 +81,11 @@ input[type=date]::-webkit-clear-button {
 
 input[type=time] {
   width: 60px;
-  @include standartStyleInput;
+  height: 30px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: 1px solid #322323;
+  outline: none;
   text-align: center;
   font-size: $fontSizeInputText;
 }
