@@ -2,7 +2,7 @@ import React from 'react';
 import { createStore } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react'
-import storage from 'redux-persist/lib/storage'
+import storage from 'redux-persist/lib/storage/session'
 import reducer from './store/reducers';
 import { Provider } from 'react-redux';
 import TaskControl from './components/TaskControlContainer';

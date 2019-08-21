@@ -1,18 +1,34 @@
 import { connect } from 'react-redux'
 import {
     addNewTaskHandler,
-    filterTasksHandler
+    taskWithoutDateHandler, 
+    submitAddNewTaskHandler, 
+    cancelAddNewTaskHandler,
+    inputTaskName,
+    inputTaskDescription,
+    inputTaskDeadlineDate,
+    inputTaskDeadlineTime,
+    inputTaskPriority
 } from '../store/actionCreators'
 import TaskControl from './TaskControl'
 
+
 const mapStateToProps = state => ({
     addNewTask: state.addNewTask,
-    taskWithoutDate: state.taskWithoutDate
+    taskWithoutDate: state.taskWithoutDate,
+    newTask: state.newTask
 })
 
 const mapDispatchToProps = {
     addNewTaskHandler,
-    filterTasksHandler
+    taskWithoutDateHandler, 
+    submitAddNewTaskHandler, 
+    cancelAddNewTaskHandler,
+    inputTaskName,
+    inputTaskDescription,
+    inputTaskDeadlineDate,
+    inputTaskDeadlineTime,
+    inputTaskPriority
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TaskControl);

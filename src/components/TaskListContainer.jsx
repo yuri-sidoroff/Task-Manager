@@ -12,7 +12,11 @@ import {
 } from '../store/actionCreators'
 import TaskList from './TaskList'
 
-const mapStateToProps = state => ({ taskList: state.taskList, filterTasks: state.filterTasks })
+
+const mapStateToProps = state => ({ 
+    taskList: state.taskList, 
+    filterTasks: state.filterTasks 
+})
 
 const mapDispatchToProps = {
     taskEditHandler,
